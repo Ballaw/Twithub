@@ -1,18 +1,16 @@
 # Django settings for Twithub project.
 import os
 import django
+#initialize django.contrib.jinja
 
 # calculated paths for django and the site
 # used as starting poits for various other paths
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
-
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media/lawrence.com/"
-MEDIA_ROOT = os.path.join(SITE_ROOT, 'assets')
+BOOTSTRAP_ROOT = os.path.join(SITE_ROOT,'assets/bootstrap/docs/assets')
 
 DATABASE_ENGINE = 'sqlite3'
-DATEBASE_NAME = os.path.join(SITE_ROOT, 'db') + '/twithub.db'
+DATABASE_NAME = os.path.join(SITE_ROOT, 'db') + '/twithub.db'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -26,9 +24,9 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'DATABASE_NAME',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
+        'NAME': DATABASE_NAME,                      # Or path to database file if using sqlite3.
+        'USER': 'stuart',                      # Not used with sqlite3.
+        'PASSWORD': 'MIYAmoto15!%',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -59,7 +57,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'assets')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -70,7 +68,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(SITE_ROOT,'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -86,6 +84,14 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    MEDIA_ROOT,
+    os.path.join(MEDIA_ROOT,'css'),
+    os.path.join(MEDIA_ROOT,'js'),
+    os.path.join(MEDIA_ROOT,'img'),
+    BOOTSTRAP_ROOT,
+    os.path.join(BOOTSTRAP_ROOT,'css'),
+    os.path.join(BOOTSTRAP_ROOT,'js'),
+    os.path.join(BOOTSTRAP_ROOT,'img'),
 )
 
 # List of finder classes that know how to find static files in
@@ -97,7 +103,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '8+m*9g#d!4$-%fc2=6df7z&!wj22!c9ko_a_0#l%_4vxeshnrw'
+SECRET_KEY = 'of3$$ga4k%1d@q_%nxo5%#==(d%6643_i_c0aqi8l*7+)s8_y@'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -120,7 +126,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(SITE_ROOT, 'templates'),
+    os.path.join(MEDIA_ROOT, 'templates'),
+    os.path.join(SITE_ROOT, 'areyouatwit/templates'),
 )
 
 INSTALLED_APPS = (
@@ -130,7 +137,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'areyouatwit',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -159,3 +165,12 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+)
