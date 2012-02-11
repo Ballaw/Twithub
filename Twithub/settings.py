@@ -25,8 +25,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': DATABASE_NAME,                      # Or path to database file if using sqlite3.
-        'USER': 'stuart',                      # Not used with sqlite3.
-        'PASSWORD': 'MIYAmoto15!%',                  # Not used with sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -57,7 +57,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(SITE_ROOT, 'assets')
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'assets/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -68,7 +68,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(SITE_ROOT,'static')
+STATIC_ROOT = os.path.join(SITE_ROOT,'static/')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -85,13 +85,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     MEDIA_ROOT,
-    os.path.join(MEDIA_ROOT,'css'),
-    os.path.join(MEDIA_ROOT,'js'),
-    os.path.join(MEDIA_ROOT,'img'),
     BOOTSTRAP_ROOT,
-    os.path.join(BOOTSTRAP_ROOT,'css'),
-    os.path.join(BOOTSTRAP_ROOT,'js'),
-    os.path.join(BOOTSTRAP_ROOT,'img'),
 )
 
 # List of finder classes that know how to find static files in

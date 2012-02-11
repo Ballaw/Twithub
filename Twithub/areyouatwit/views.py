@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, render
 from django.template import RequestContext
 from Twithub.areyouatwit.models import TwitOrNot
+from jinja2 import Environment, PackageLoader
 
 
 # Create your views here.

@@ -1,11 +1,10 @@
-<html>
-<head>
-<title>home</title>
-<link rel="stylesheet/less" type="text/css" href="{{ STATIC_URL }}styles.less">
-<script src="{{ STATIC_URL }}less-1.2.1.min.js" type="text/javascript"></script>
-</head>
-<body>
-<p>index a page!</p>
-<img src="{{ STATIC_URL }}img/a.jpg" />
-</body>
-</html>
+{% extends "base_header_footer.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+	<p>index a page!</p>
+	<img src="{{ STATIC_URL }}img/a.jpg" />
+	{{ STATIC_URL }}a.jpg
+{% endblock %}
+
