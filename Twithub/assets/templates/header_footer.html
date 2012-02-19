@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block header %}
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+	<footer style="text-align:center">
+		<hr></hr>
+		<img src="{{ STATIC_URL }}img/a.jpg" style="height:30; width:30; float:left"/>
+		<img src="{{ STATIC_URL }}img/a.jpg" style="height:30; width:30; float:right"/>
+		<span>Copyright 2025</span>
+	</footer>
+{% endblock %}
